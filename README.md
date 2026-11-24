@@ -1,4 +1,4 @@
-﻿<p align="center">
+<p align="center">
   <img src="assets/moltbot-migration.jpg" alt="ClawdBot â†’ MoltBot" width="100%">
 </p>
 
@@ -159,7 +159,7 @@ ApÃ³s instalar o Docker, siga estes passos para colocar o Moltbot no ar:
 
 1. **Clone o repositÃ³rio:**
    ```bash
-   git clone https://github.com/inematds/docker-moltbot-open.git
+   git clone https://github.com/linnoff88-dev/docker-moltbot-open.git
    cd docker-moltbot-open
    ```
 
@@ -214,19 +214,19 @@ ApÃ³s instalar o Docker, siga estes passos para colocar o Moltbot no ar:
 
 **Linux / Mac:**
 ```bash
-git clone https://github.com/inematds/docker-moltbot-open.git
+git clone https://github.com/linnoff88-dev/docker-moltbot-open.git
 cd docker-moltbot-open
 ```
 
 **Windows (CMD):**
 ```cmd
-git clone https://github.com/inematds/docker-moltbot-open.git
+git clone https://github.com/linnoff88-dev/docker-moltbot-open.git
 cd docker-moltbot-open
 ```
 
 **Windows (PowerShell):**
 ```powershell
-git clone https://github.com/inematds/docker-moltbot-open.git
+git clone https://github.com/linnoff88-dev/docker-moltbot-open.git
 cd docker-moltbot-open
 ```
 
@@ -871,7 +871,7 @@ Se vocÃª estÃ¡ atualizando do setup antigo `docker-clawdbot`, aqui estÃ¡ o
 | Pacote: `clawdbot` (npm) | Pacote: `moltbot` (npm) |
 | CLI: `clawdbot` | CLI: `moltbot` |
 | Comando: `clawdbot gateway start --foreground` | Comando: `moltbot gateway run` |
-| Repo: `inematds/docker-clawdbot` | Repo: `inematds/docker-moltbot` |
+| Repo: `linnoff88-dev/docker-clawdbot` | Repo: `linnoff88-dev/docker-moltbot` |
 | Docs: `docs.clawd.bot` | Docs: `docs.molt.bot` (redirects funcionam) |
 | Dir de config: `~/.clawdbot` | Dir de config: `~/.moltbot` (com fallback para `~/.clawdbot`) |
 | UsuÃ¡rio: `clawdbot` | UsuÃ¡rio: `moltbot` |
@@ -895,7 +895,7 @@ Se vocÃª estÃ¡ atualizando do setup antigo `docker-clawdbot`, aqui estÃ¡ o
 
 3. **Clone o novo repo:**
    ```bash
-   git clone https://github.com/inematds/docker-moltbot-open.git
+   git clone https://github.com/linnoff88-dev/docker-moltbot-open.git
    cd docker-moltbot-open
    ```
 
