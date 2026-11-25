@@ -1,8 +1,8 @@
-# 🚀 Guia de Configuração OpenRouter
+# 🚀 Guia de Configuraçêo OpenRouter
 
-Este guia documenta a configuração **CORRETA** para usar o Moltbot com OpenRouter, baseado em troubleshooting real e documentação oficial.
+Este guia documenta a configuraçêo **CORRETA** para usar o Moltbot com OpenRouter, baseado em troubleshooting real e documentaçêo oficial.
 
-## ✅ Configuração que FUNCIONA
+## ✅ Configuraçêo que FUNCIONA
 
 ### 1. Arquivo `.env`
 
@@ -44,7 +44,7 @@ http://localhost:18790/chat?token=seu-gateway-auth-token
 
 ## 📝 Formato do Modelo - MUITO IMPORTANTE!
 
-### ❌ Formatos INCORRETOS que NÃO funcionam:
+### ❌ Formatos INCORRETOS que NêO funcionam:
 
 ```bash
 # SEM o prefixo openrouter/
@@ -54,7 +54,7 @@ DEFAULT_MODEL=anthropic/claude-sonnet-4.5
 DEFAULT_MODEL=openrouter/anthropic/claude-sonnet-4-5
 
 # Tentando usar ANTHROPIC_BASE_URL
-ANTHROPIC_BASE_URL=https://openrouter.ai/api/v1  # NÃO é necessário!
+ANTHROPIC_BASE_URL=https://openrouter.ai/api/v1  # NêO é necessário!
 ```
 
 ### ✅ Formato CORRETO:
@@ -63,14 +63,14 @@ ANTHROPIC_BASE_URL=https://openrouter.ai/api/v1  # NÃO é necessário!
 DEFAULT_MODEL=openrouter/anthropic/claude-sonnet-4.5
 ```
 
-**Padrão:** `openrouter/<provider>/<model>`
+**Padrêo:** `openrouter/<provider>/<model>`
 
 ## 🎯 Modelos Disponíveis via OpenRouter
 
 ### Claude (Anthropic)
 - `openrouter/anthropic/claude-sonnet-4.5` - Mais recente (recomendado)
 - `openrouter/anthropic/claude-opus-4` - Mais poderoso
-- `openrouter/anthropic/claude-3.5-sonnet` - Versão anterior
+- `openrouter/anthropic/claude-3.5-sonnet` - Versêo anterior
 - `openrouter/anthropic/claude-3.7-sonnet` - Com reasoning mode
 
 ### GPT (OpenAI)
@@ -94,7 +94,7 @@ DEFAULT_MODEL=openrouter/anthropic/claude-sonnet-4.5
 
 **Causa:** Falta o prefixo `openrouter/`
 
-**Solução:**
+**Soluçêo:**
 ```bash
 # Errado
 DEFAULT_MODEL=anthropic/claude-sonnet-4.5
@@ -107,13 +107,13 @@ DEFAULT_MODEL=openrouter/anthropic/claude-sonnet-4.5
 
 **Causa:** Tentando usar modelo Anthropic sem o prefixo `openrouter/`
 
-**Solução:** Adicionar prefixo `openrouter/` ao modelo
+**Soluçêo:** Adicionar prefixo `openrouter/` ao modelo
 
 ### Mensagem processada mas sem resposta no webchat
 
-**Solução:** Recarregar a página do webchat (Ctrl+F5)
+**Soluçêo:** Recarregar a página do webchat (Ctrl+F5)
 
-### Container não inicia
+### Container nêo inicia
 
 ```bash
 # Limpar tudo e rebuildar
@@ -165,14 +165,14 @@ embedded run done: durationMs=... aborted=false
 message processed: outcome=completed
 ```
 
-## 📚 Documentação Oficial
+## 📚 Documentaçêo Oficial
 
 - **Moltbot OpenRouter:** https://docs.molt.bot/providers/openrouter
 - **OpenRouter:** https://openrouter.ai/works-with-openrouter/moltbot
 - **Modelos:** https://openrouter.ai/models
 - **API Keys:** https://openrouter.ai/settings/keys
 
-## ⚙️ Configuração Avançada
+## ⚙️ Configuraçêo Avançada
 
 ### Trocar de modelo
 

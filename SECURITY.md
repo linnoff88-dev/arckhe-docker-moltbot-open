@@ -375,7 +375,7 @@ ss -tlnp | grep -E '18789|22'
 
 ---
 
-## 📁 Arquivos de Configuração — Localizações e Segurança
+## 📁 Arquivos de Configuraçêo — Localizações e Segurança
 
 ### Estrutura de Diretórios
 
@@ -383,7 +383,7 @@ ss -tlnp | grep -E '18789|22'
 
 ```
 /home/moltbot/
-├── .clawdbot/                           # Diretório principal de configuração
+├── .clawdbot/                           # Diretório principal de configuraçêo
 │   ├── clawdbot.json                    # ⚠️ CRÍTICO - Contém tokens e configurações
 │   ├── clawdbot.json.bak                # Backup automático (criado pelo doctor)
 │   ├── credentials/                     # OAuth tokens, refresh tokens
@@ -401,13 +401,13 @@ ss -tlnp | grep -E '18789|22'
 **No host (volumes Docker):**
 
 ```bash
-# Ver onde os volumes estão montados:
+# Ver onde os volumes estêo montados:
 docker volume inspect moltbot-data
 
-# Localização típica (Linux):
+# Localizaçêo típica (Linux):
 /var/lib/docker/volumes/moltbot-data/_data/
 
-# Localização típica (Windows com WSL):
+# Localizaçêo típica (Windows com WSL):
 \\wsl$\docker-desktop-data\data\docker\volumes\moltbot-data\_data\
 ```
 
@@ -415,14 +415,14 @@ docker volume inspect moltbot-data
 
 ### 🔐 Arquivos Sensíveis — O Que Proteger
 
-#### 1. **`clawdbot.json`** — Configuração Principal
+#### 1. **`clawdbot.json`** — Configuraçêo Principal
 
-**Localização:** `/home/moltbot/.clawdbot/clawdbot.json`
+**Localizaçêo:** `/home/moltbot/.clawdbot/clawdbot.json`
 
 **Contém:**
 - Gateway auth token (GATEWAY_AUTH_TOKEN)
 - API keys (se configuradas diretamente no JSON)
-- Configurações de canais (Telegram bot token, WhatsApp sessão)
+- Configurações de canais (Telegram bot token, WhatsApp sessêo)
 - Preferências de modelo e routing
 
 **Permissões:** `600` (somente owner read/write)
@@ -439,21 +439,21 @@ docker cp moltbot:/home/moltbot/.clawdbot/clawdbot.json ./backup-config.json
 **⚠️ NUNCA:**
 - Commitar este arquivo no git
 - Enviar em canais públicos (Discord, fóruns)
-- Fazer backup não-criptografado em cloud pública
+- Fazer backup nêo-criptografado em cloud pública
 - Editar manualmente (use variáveis de ambiente no `.env` quando possível)
 
 ---
 
 #### 2. **`.env`** — Variáveis de Ambiente (Secrets)
 
-**Localização:** `/caminho/do/repo/docker-moltbot/.env` (no host)
+**Localizaçêo:** `/caminho/do/repo/docker-moltbot/.env` (no host)
 
 **Contém:**
 - `ANTHROPIC_API_KEY` — Chave de API Anthropic (Claude)
 - `OPENAI_API_KEY` — Chave de API OpenAI (GPT)
 - `GOOGLE_API_KEY` — Chave de API Google (Gemini)
 - `OPENROUTER_API_KEY` — Chave de API OpenRouter
-- `GATEWAY_AUTH_TOKEN` — Token de autenticação do gateway
+- `GATEWAY_AUTH_TOKEN` — Token de autenticaçêo do gateway
 - `TELEGRAM_BOT_TOKEN` — Token do bot Telegram
 
 **Permissões recomendadas:**
@@ -461,9 +461,9 @@ docker cp moltbot:/home/moltbot/.clawdbot/clawdbot.json ./backup-config.json
 chmod 600 .env
 ```
 
-**Proteção:**
-- ✅ Já está no `.gitignore` (não vai pro GitHub)
-- ✅ Não é copiado para dentro da imagem Docker
+**Proteçêo:**
+- ✅ Já está no `.gitignore` (nêo vai pro GitHub)
+- ✅ Nêo é copiado para dentro da imagem Docker
 - ✅ Apenas passado como variáveis de ambiente ao container
 
 **⚠️ CRÍTICO:**
@@ -475,12 +475,12 @@ chmod 600 .env
 
 #### 3. **`credentials/`** — OAuth Tokens
 
-**Localização:** `/home/moltbot/.clawdbot/credentials/`
+**Localizaçêo:** `/home/moltbot/.clawdbot/credentials/`
 
 **Contém:**
 - Refresh tokens de OAuth (Gmail, Google Calendar, etc.)
 - Access tokens temporários
-- Chaves de sessão
+- Chaves de sessêo
 
 **Permissões:** `700` (diretório), `600` (arquivos)
 
@@ -490,7 +490,7 @@ chmod 600 .env
 
 #### 4. **`sessions.json`** — Histórico de Conversas
 
-**Localização:** `/home/moltbot/.clawdbot/agents/main/sessions/sessions.json`
+**Localizaçêo:** `/home/moltbot/.clawdbot/agents/main/sessions/sessions.json`
 
 **Contém:**
 - Histórico completo de mensagens
@@ -501,9 +501,9 @@ chmod 600 .env
 - Pode conter informações sensíveis discutidas com o bot
 - Prompts, respostas, arquivos compartilhados
 
-**Recomendação:**
+**Recomendaçêo:**
 ```bash
-# Habilite redação de dados sensíveis nos logs
+# Habilite redaçêo de dados sensíveis nos logs
 # No clawdbot.json:
 {
   "logging": {
@@ -516,16 +516,16 @@ chmod 600 .env
 
 #### 5. **Logs** — Trilha de Auditoria
 
-**Localização:** `/home/moltbot/logs/*.log`
+**Localizaçêo:** `/home/moltbot/logs/*.log`
 
 **Contém:**
 - Chamadas de API (pode mostrar modelos usados)
 - Erros e stack traces
 - Conexões de rede (IPs, timestamps)
 
-**Retenção padrão:** Indefinida (cresce com o tempo)
+**Retençêo padrêo:** Indefinida (cresce com o tempo)
 
-**Rotação de logs recomendada:**
+**Rotaçêo de logs recomendada:**
 ```bash
 # Criar /etc/logrotate.d/moltbot no host:
 /var/lib/docker/volumes/moltbot-logs/_data/*.log {
@@ -540,7 +540,7 @@ chmod 600 .env
 
 ---
 
-### 🛡️ Medidas de Proteção Automáticas
+### 🛡️ Medidas de Proteçêo Automáticas
 
 **O que o `entrypoint.sh` faz automaticamente:**
 
@@ -548,7 +548,7 @@ chmod 600 .env
 # 1. Cria diretório de config com permissões restritas
 mkdir -p "$HOME/.clawdbot"
 
-# 2. Injeta secrets via variáveis de ambiente (não texto puro no JSON)
+# 2. Injeta secrets via variáveis de ambiente (nêo texto puro no JSON)
 if [ -n "$ANTHROPIC_API_KEY" ]; then
   inject_json "$CONFIG_FILE" "cfg.auth.profiles['anthropic:default'] = { provider: 'anthropic', mode: 'token' };"
 fi
@@ -565,14 +565,14 @@ inject_json "$CONFIG_FILE" "cfg.gateway.bind = 'lan';"
 ```yaml
 services:
   moltbot:
-    # Porta só acessível do localhost (não de fora)
+    # Porta só acessível do localhost (nêo de fora)
     ports:
       - "127.0.0.1:18789:18789"
 
-    # Container roda como usuário não-root
+    # Container roda como usuário nêo-root
     user: moltbot
 
-    # Sem escalação de privilégios
+    # Sem escalaçêo de privilégios
     security_opt:
       - no-new-privileges:true
 
@@ -582,12 +582,12 @@ services:
 
 ---
 
-### 📋 Checklist de Segurança de Configuração
+### 📋 Checklist de Segurança de Configuraçêo
 
 #### ✅ Nível Básico (obrigatório)
-- [ ] `.env` não está commitado no git
+- [ ] `.env` nêo está commitado no git
 - [ ] `.env` tem permissões `600` (`chmod 600 .env`)
-- [ ] Gateway só acessível via `127.0.0.1` (não `0.0.0.0`)
+- [ ] Gateway só acessível via `127.0.0.1` (nêo `0.0.0.0`)
 - [ ] `dmPolicy` está em `pairing` ou `allowlist`
 - [ ] Logging está habilitado (`level: "info"`)
 
@@ -596,21 +596,21 @@ services:
 - [ ] Volumes Docker têm backup regular
 - [ ] `redactSensitive: "tools"` está habilitado
 - [ ] Firewall (UFW) bloqueia porta 18789 de fora
-- [ ] Rotação de logs configurada
+- [ ] Rotaçêo de logs configurada
 
 #### ✅ Nível Avançado (máxima segurança)
-- [ ] Volumes Docker são encrypted-at-rest
+- [ ] Volumes Docker sêo encrypted-at-rest
 - [ ] Disco do host tem LUKS full-disk encryption
-- [ ] Acesso remoto via Tailscale (não SSH direto)
+- [ ] Acesso remoto via Tailscale (nêo SSH direto)
 - [ ] AppArmor/SELinux habilitado no container
 - [ ] Auditd monitora mudanças em arquivos de config
 - [ ] Backup automático para storage criptografado off-site
 
 ---
 
-### 🔍 Auditoria de Configuração
+### 🔍 Auditoria de Configuraçêo
 
-**Verifique se seus arquivos estão protegidos:**
+**Verifique se seus arquivos estêo protegidos:**
 
 ```bash
 # 1. Permissões do arquivo de config
@@ -625,13 +625,13 @@ docker exec moltbot cat /home/moltbot/.clawdbot/clawdbot.json | grep -o '"bind":
 docker exec moltbot cat /home/moltbot/.clawdbot/clawdbot.json | grep -o '"dmPolicy":"[^"]*"'
 # Esperado: "dmPolicy":"pairing"
 
-# 4. .env não está no git
+# 4. .env nêo está no git
 git ls-files | grep "^.env$"
 # Esperado: (saída vazia)
 
 # 5. Porta só acessível localmente
 ss -tlnp | grep 18789
-# Esperado: 127.0.0.1:18789 (não 0.0.0.0:18789)
+# Esperado: 127.0.0.1:18789 (nêo 0.0.0.0:18789)
 
 # 6. Auditoria completa
 docker exec moltbot clawdbot security audit
@@ -639,7 +639,7 @@ docker exec moltbot clawdbot security audit
 
 ---
 
-### 💾 Backup Seguro de Configuração
+### 💾 Backup Seguro de Configuraçêo
 
 **Backup manual (criptografado):**
 
@@ -657,10 +657,10 @@ gpg --symmetric --cipher-algo AES256 .env -o .env.backup.gpg
 # 3. Armazenar em local seguro off-site
 # - Cloud com criptografia (S3 + KMS, etc.)
 # - Disco externo criptografado
-# - NUNCA armazenar não-criptografado em Dropbox, Google Drive público, etc.
+# - NUNCA armazenar nêo-criptografado em Dropbox, Google Drive público, etc.
 ```
 
-**Restauração:**
+**Restauraçêo:**
 
 ```bash
 # 1. Descriptografar backup
@@ -713,7 +713,7 @@ ports:
 user: root  # ❌ Risco de segurança
 
 # CERTO:
-user: moltbot  # ✅ Não-root (já é o padrão)
+user: moltbot  # ✅ Nêo-root (já é o padrêo)
 ```
 
 ---
