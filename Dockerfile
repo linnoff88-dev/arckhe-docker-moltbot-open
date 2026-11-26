@@ -1,6 +1,6 @@
 FROM node:22-slim
 
-LABEL maintainer="inematds"
+LABEL maintainer="linnoff88-dev"
 LABEL description="Moltbot - AI Personal Assistant with security hardening"
 
 # System dependencies (git is required for npm install)
